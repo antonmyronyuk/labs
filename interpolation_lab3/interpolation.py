@@ -38,3 +38,13 @@ class Interpolation:
             res += f(self.args[:i]) * term
 
         return res
+
+    def eitken(self, x, start=0, finish=10):
+        x_i = self.args[start]
+        x_j = self.args[finish]
+        return self.func(x_i) if start == finish \
+            else ((x - x_i) * self.eitken(x, start + 1, finish) - (x - x_j)
+                  * self.eitken(x, start, finish - 1)) / (x_j - x_i)
+
+
+
