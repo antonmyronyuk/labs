@@ -1,4 +1,3 @@
-import pandas as pd
 import matplotlib.pyplot as plt
 import numpy as np
 from interpolation import Interpolation as Itp
@@ -15,6 +14,8 @@ if __name__ == "__main__":
     # function graph
     plt.plot(itp.args, itp.func(itp.args), 'go', t1, itp.func(t1), 'r', t1, itp.eitken(t1), 'b')
     plt.subplot(212)
+    null_func = lambda x: 0.0 * x  # just return 0 for each argument
     # absolute error
     plt.plot(t2, np.abs(itp.func(t2) - itp.eitken(t2)), 'b')
+    plt.plot(t2, null_func(t2), 'r--')
     plt.show()
