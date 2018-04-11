@@ -34,7 +34,7 @@ class Leaderboard:
 class User:
     def __init__(self, name, clan, honor):
         self.name = name
-        self.clan = clan
+        self.clan = clan or ''
         self.honor = int(honor)
 
 
